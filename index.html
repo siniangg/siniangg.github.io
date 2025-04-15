@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ooouni</title>
+        <link rel="stylesheet" href="css/s.css">
+        <style>
+           body {
+    background-color:rgb(69, 112, 255);
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  p {
+    color: rgb(223, 205, 240);
+    font-family: verdana;
+    font-size: 20px;
+    text-align-last: center;
+  }
+
+  input {
+    background-color: #ffffff; /* 设置背景色 */
+    opacity: 0.5; /* 设置透明度 */
+    text-align: center; /* 设置文本居中对齐 */
+    border-color: #ffffff; /* 设置边框颜色 */
+    border-radius: 6px; /* 设置圆角边框 */
+    height: 60px; /* 设置高度 */
+    width: 100px; /* 设置宽度 */
+    margin: 0 auto; /* 设置左右外边距为 "auto" */
+    display: block; /* 让元素变为块级元素 */
+    margin-top: 10px; /* 设置上方向的外边距为 10px */
+    margin-bottom: 10px; /* 设置下方向的外边距为 10px */
+}
+        </style>
+    </head>
+
+
+
+
+
+
+
+    <body>
+        <input type="text" id="price" name="price" oninput="getInput()" placeholder="成本价">
+        <input type="text" id="rise" name="rise" oninput="getInput()" placeholder="目标价">
+        <input type="text" id="budget" name="budget" oninput="getInput()" placeholder="投资额">
+        <p id="investment"></p>
+
+        <script>
+            function getInput() {
+    // 获取输入框中的值
+    var price = parseFloat(document.getElementById("price").value);
+    var rise = parseFloat(document.getElementById("rise").value);
+    var budget = parseFloat(document.getElementById("budget").value);
+    
+    // 计算投资额
+    var investment = ((rise - price) / price) * budget;
+
+    // 输出计算结果到 DOM
+    var investmentOutput = document.getElementById("investment");
+    if (!isNaN(investment)) {
+        investmentOutput.innerHTML = "利潤: " + investment.toFixed(2);
+    } else {
+        investmentOutput.innerHTML = "请输入有效的数字";
+    }
+}
+
+        </script>
+    </body>
+</html>
